@@ -1,0 +1,82 @@
+Ispit iz programiranja, nizovi i polja c++
+Zadatci su:
+	1. Unesi dimenziju niza. Upiši brojeve u niz. Ispiši niz; Ispiši učitani paran broj i poziciju u nizu.                                                               
+ULAZ: 5   
+ULAZ: 3,10,7,2,9
+IZLAZ: 3,10,7,2,9
+IZLAZ: 10,1
+             2,3
+	2. Učitaj brojeve u polje dimenzije 4x4. Ispiši polje u obliku tablice. Zbroji samo brojeve koji se nalaze unutar kvadrata.
+ULAZ: 1,2,3,4,4,3,2,1,2,2,2,2,3,3,3,3
+IZLAZ: 1 2 3 4
+           4 3 2 1
+           2 2 2 2
+           3 3 3 3 
+zbroj:3+2+2+2=9 (podebljani brojevi)
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Unesi dimenziju niza: ";
+    cin >> n;
+
+    int niz[n];
+    cout << "Unesi brojeve u niz: ";
+    for (int i = 0; i < n; i++) {
+        cin >> niz[i];
+    }
+
+    // Ispis niza
+    cout << "Niz: ";
+    for (int i = 0; i < n; i++) {
+        cout << niz[i] << " ";
+    }
+    cout << endl;
+
+    // Ispis parnih brojeva i njihovih pozicija
+    cout << "Parni brojevi i njihove pozicije:" << endl;
+    for (int i = 0; i < n; i++) {
+        if (niz[i] % 2 == 0) {
+            cout << niz[i] << ", " << i << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int polje[4][4];
+    
+    cout << "Unesi elemente 4x4 polja: ";
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cin >> polje[i][j];
+        }
+    }
+
+    // Ispis polja
+    cout << "Polje u obliku tablice:" << endl;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << polje[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    // Zbrajanje brojeva unutar "kvadrata"
+    int suma = polje[2][1] + polje[2][2] + polje[2][3] + polje[3][1]; 
+    cout << "Zbroj odabranih brojeva: " << suma << endl;
+
+    return 0;
+}
